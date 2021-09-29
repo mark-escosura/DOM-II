@@ -32,17 +32,28 @@ nav.addEventListener('mouseout', (event) =>{
     event.target.style.color = '';
 }, false);
 
+const allH2 = document.querySelectorAll ('h2'); // querySelectorAll will make the declared variable an array
+allH2.forEach(h2 => {
+    h2.addEventListener('mouseover', (event) => {
+        event.target.style.color = 'red';
+        setTimeout (() => {
+            alert('press the "Escape" key to see some magic');
+        }, 1000);
+    })
+    h2.addEventListener('mouseout', (event) => {
+        event.target.style.color = '';
+        setTimeout (() => {
+            alert('press the "Escape" key to see some magic');
+        }, 1000);
+    })    
 
+}, false);
 
 // Images
-const images = document.querySelector('.home .intro img');
-
-images.addEventListener('dblclick', () => {
-    
-});
+const images = document.querySelectorAll('img');
+images.forEach((e) => {
+    images.addEventListener('dblclick', () => {
+        e.target.style.opacity = '.50';
+    });
+},false);
 console.log(images);
-// Welcome Sign
-
-
-
-

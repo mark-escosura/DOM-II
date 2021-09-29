@@ -1,59 +1,100 @@
 // Your code goes here
-// ****** header ******
 
-// heading 
-const headerHeading = document.querySelector('.logo-heading');
+// ****** h1 ******
+
+const allH1 = document.querySelector('.logo-heading');
     
 
-headerHeading.addEventListener('mouseover', (event) =>{
+allH1.addEventListener('mouseover', (event) =>{
     event.target.style.color = 'blue';
-    // setTimeout(function(){
-    //     event.target.style.color = '';
-    // }, 1000);
 }, false);
-headerHeading.addEventListener('mouseout', (event) => {
+
+allH1.addEventListener('mouseout', (event) => {
     event.target.style.color = '';
 },false);
 
-// nav 
-const nav = document.querySelector('header nav');
-
-nav.addEventListener('click', (event) =>{
-    event.preventDefault();
+// ****** body ******
+const body = document.querySelector('body');
+body.addEventListener('keydown', () => {
+    body.style.color = 'white';
+    body.style.backgroundColor = 'black';
+})
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape"){
+        document.classList.add("off");
+    }
 });
 
-nav.addEventListener('mouseover', (event) =>{
-    event.target.style.color = 'green';
-    // setTimeout(function(event) { // determines how long the event will last
-    //     event.target.style.color = '';
-    // }, 1000);
+// ****** nav ******
+
+const nav = document.querySelector('header nav');
+
+nav.addEventListener('click', (event) => {
+    event.preventDefault();
 }, false);
-nav.addEventListener('mouseout', (event) =>{
+
+nav.addEventListener('mouseover', (event) => {
+    event.target.style.color = 'green';
+}, false);
+
+nav.addEventListener('mouseout', (event) => {
     event.target.style.color = '';
 }, false);
+
+// ****** h2 ******
 
 const allH2 = document.querySelectorAll ('h2'); // querySelectorAll will make the declared variable an array
 allH2.forEach(h2 => {
     h2.addEventListener('mouseover', (event) => {
         event.target.style.color = 'red';
-        setTimeout (() => {
-            alert('press the "Escape" key to see some magic');
-        }, 1000);
     })
+
     h2.addEventListener('mouseout', (event) => {
         event.target.style.color = '';
-        setTimeout (() => {
-            alert('press the "Escape" key to see some magic');
-        }, 1000);
-    })    
-
+    })
 }, false);
 
-// Images
+// ****** images ******
+
 const images = document.querySelectorAll('img');
-images.forEach((e) => {
-    images.addEventListener('dblclick', () => {
-        e.target.style.opacity = '.50';
-    });
-},false);
-console.log(images);
+images.forEach(img => { 
+    img.addEventListener('mouseover', () => { 
+        img.style.opacity = '.86';
+    })
+
+    img.addEventListener('mouseout', () => {
+        img.style.opacity = '';
+    })
+}, false);
+
+// ****** paragraph ******
+
+const paraSelect = document.querySelectorAll('p');
+paraSelect.forEach(p => {
+    p.addEventListener('select', (event) => {
+        event.target.style.backgroundColor = 'yellow';
+    })
+}, false);
+
+// ****** button ******
+
+const signMeUpButton = document.querySelector('.btn')
+signMeUpButton.onclick = (event) => {
+    console.log('What happen');
+}
+
+signMeUpButton.addEventListener('click', (event) => {
+    console.log(event.target);
+})
+
+signMeUpButton.addEventListener('click', (event) => {
+    if(event.target === signMeUpButton){
+        alert('Sign-Up form is currently under construction!')
+    }
+});
+
+signMeUpButton.addEventListener('blur', () => {
+    if(event.target === signMeUpButton){
+        signMeUpButton.style.filter = 'blur';
+    }
+})
